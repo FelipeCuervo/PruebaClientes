@@ -36,4 +36,17 @@ public class ClienteService {
         }
          return clienteDTOList;
     }
+
+    public String getQuantityClienteAvarage(){
+        long count = clienteRepository.count();
+        long ageSumatory = 0;
+        List<Cliente>clienteList = clienteRepository.findAll();
+
+        for (Cliente cliente :clienteList) {
+            ageSumatory+=cliente.calculateAge();
+        }
+
+        double avarageAge = count > 0 ? (double) ageSumatory / count : 0;
+        return "La cantidad de clientes es: "+count+" \nEl promedio de edad es: "+avarageAge;
+    }
 }

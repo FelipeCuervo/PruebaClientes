@@ -40,5 +40,10 @@ public class Controller {
         return clienteService.getClientesOrderByAgeAsc();
     }
 
+    @GetMapping("getQuantityClienteAvarage")
+    public String getQuantityClienteAvarage(){
+        return clienteService.getQuantityClienteAvarage();
+    }
+
 
 }
